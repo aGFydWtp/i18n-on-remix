@@ -23,11 +23,6 @@ server.use(csrf());
 // get locale files
 server.get("/locales/*", serveStatic());
 
-/** check auth */
-server.use("*", async (c, next) => {
-  return next();
-});
-
 server.mount("/", remixHandler, (c) => ({ env: c.env }));
 
 export const onRequest = handle(server);
