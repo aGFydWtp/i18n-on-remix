@@ -1,16 +1,9 @@
-import { LoaderFunction } from "@remix-run/cloudflare";
 import { useParams } from "@remix-run/react";
 import { useTranslation } from "react-i18next";
 
 import { Header } from "@/components/header";
 import { css } from "@/styled-system/css";
 import { stack } from "@/styled-system/patterns";
-import { getLang } from "@/utils/i18n";
-
-export const loader = (async ({ params }) => {
-  getLang(params);
-  return null;
-}) satisfies LoaderFunction;
 
 export default function Index() {
   const { lang = "" } = useParams();
